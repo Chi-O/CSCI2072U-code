@@ -42,11 +42,11 @@ def bisect(f, a0, b0, k_max, eps_x, eps_f):
 
     return c, max_err
 
-# def f(x):
-#     return np.exp(-x * x) - x
-
 def f(x):
-    return (math.cos(x)) - x
+    return np.exp(-x * x) - x
+
+# def f(x):
+#     return (math.cos(x)) - x
 
 # a0 = 0.0
 # b0 = 1.0 
@@ -59,9 +59,9 @@ def f(x):
 # print("x = %e" % (xstar))
 
 a0 = 0.0
-b0 = 2.0 
+b0 = 1.0 
 k_max = 100
-eps_x = 1.0e-4
+eps_x = 1.0e-5
 eps_f = 1.0
 
 xstar, err = bisect(f, a0, b0, k_max, eps_x, eps_f)

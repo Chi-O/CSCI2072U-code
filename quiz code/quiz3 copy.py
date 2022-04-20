@@ -1,3 +1,7 @@
+"""
+polynomial interpolation using Newton polynomial
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.linalg
@@ -62,7 +66,7 @@ a_coeff = scipy.linalg.solve(V,y)
 
 yy = NewtonPolyEval(a_coeff,x,xx)
 # yy = MonoPolyEval(a_coeff,xx)
-print(xx, "\n", yy)
+print(xx, "\n" + str(yy))
 #print(xk, "\n", NewtonPolyEval(a_coeff,x,xk))
 
 plt.plot(x, y, 'o',xx,yy, '-b')

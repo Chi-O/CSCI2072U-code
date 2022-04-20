@@ -1,4 +1,8 @@
-# least-squares approximation
+"""
+least squares approximation 
+
+30/05/2022
+"""
 
 import numpy as np 
 import scipy.linalg
@@ -19,21 +23,21 @@ def LS_Matrix(xd):
 
 
 # the data  
-xd = np.array([0.1, 0.9, 1.3, 2.1, 2.6, 3.1, 4.0])
-yd = np.array([0.88, 1.08, 1.37, 1.5, 1.63, 1.91, 2.02])
+x = np.array([0.1, 0.9, 1.3, 2.1, 2.6, 3.1, 4.0])
+y = np.array([0.88, 1.08, 1.37, 1.5, 1.63, 1.91, 2.02])
 
-# get the matrix, i.e. the overdetermined sysrem is V a = yd 
-V = LS_Matrix(xd)
+# get the matrix, i.e. the overdetermined sysrem is V a = y
+V = LS_Matrix(x)
 
 # # compute matrices for the normal equations
-# M = V.T @ V
-# c = V.T @ yd
+M = V.T @ V
+c = V.T @ y
 
-# # solve for the coefficients, i.e. solving V^T V a = V^T yd
-# xstar = scipy.linalg.solve(M, c)
+# solve for the coefficients, i.e. solving V^T V a = V^T yd
+xstar = scipy.linalg.solve(M, c)
 
-# USING SCIPY
-xstar, res, rnk, s = scipy.linalg.lstsq(V, yd) # replaces lines 29, 30, 33
+# # USING SCIPY
+# xstar, res, rnk, s = scipy.linalg.lstsq(V, yd) # replaces lines 29, 30, 33
 
 
 # for plotting interpolant
@@ -42,6 +46,6 @@ print(xstar)
 yy = xstar[0] + xstar[1] * xx
 
 # plot data
-plt.plot(xd, yd, 'oc', xx, yy, 'coral')
+plt.plot(x, y, 'oc', xx, yy, 'coral')
 plt.legend(["data", "least squares approx."])
 plt.show()

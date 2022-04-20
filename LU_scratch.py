@@ -26,7 +26,7 @@ L, U = LU(A)
 print("L: \n", L)
 print("\nU: \n", U)
 
-print("is A = LU? \n")
+print("\n>> is A = LU? \n")
 print("LU: \n", np.dot(L, U))
 
 print("\nA: \n", A)

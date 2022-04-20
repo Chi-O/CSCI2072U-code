@@ -22,11 +22,13 @@ yy2 = np.sin(xx)
 
 
 #V = NewtonPolyBuild(x)
+# finding the coeeficients of the interpolant by V a = y
 V = VanderMatrix(x)
 a_coeff = scipy.linalg.solve(V,y)
 
 
 #yy = NewtonPolyEval(a_coeff,x,xx)
+# evaluates the interpolating polynomial; i.e. get y values of interpolant
 yy = MonoPolyEval(a_coeff,xx)
 
 
